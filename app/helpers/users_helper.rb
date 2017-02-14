@@ -2,17 +2,20 @@ module UsersHelper
 
   # Returns the Gravatar for the given user.
 
-  # getting images to display on development versus production
-  # http://stackoverflow.com/questions/38222989/gravatar-image-not-displaying
-  def gravatar_for(user)
+
+  def gravatar_for(user, size: 80)
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    # size = options[:size]
+
+    # getting images to display on development versus production
+    # http://stackoverflow.com/questions/38222989/gravatar-image-not-displaying
     if Rails.env.production?
-      # puts 'hi'
-      gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+      gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     elsif Rails.env.development?
-      # puts 'bye'
-      gravatar_url = "https://gravatar.com/avatar/#{gravatar_id}"
+      # still doesn't work ?_?
+      gravatar_url = "http://gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     end
+
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
 end
