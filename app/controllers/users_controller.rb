@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)   # not the final implementation
     if @user.save
       # handle a succesful save
+      flash[:success] = "Welcome to Sample App!"
+      redirect_to @user # also works: redirect_to user_url(@user); rails understands the former [magic]
     else
       render 'new'
     end
