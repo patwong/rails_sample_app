@@ -8,10 +8,7 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <%# the original 'ugly' flash code is here for posterity (Listing 7.31) %>
-      <%# flash.each do |message_type, message| %>
-          <%# <div class="alert alert-<%= message_type %>"><%#= message %></div>  %>
-      <%# end %>
+      <%# the original 'ugly' flash code is in Listing 7.31 - see commented_code.txt %>
       <% flash.each do |message_type, message| %>
           <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
