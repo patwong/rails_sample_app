@@ -9,4 +9,9 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  # Section 8.2.5
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
 end

@@ -9,4 +9,10 @@ class ActiveSupport::TestCase
   fixtures :all
   include ApplicationHelper
   # Add more helper methods to be used by all tests here...
+
+  # Section 8.25
+  # since ApplicationHelper is included, add to app/helpers/application_helper.rb instead
+  # def is_logged_in?
+  #   !session[:user_id].nil?
+  # end
 end
