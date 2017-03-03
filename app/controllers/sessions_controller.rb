@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     # otherwise, an exception will be thrown and the if-statement fails
     # i.e. shortcircuiting
     if user && user.authenticate(params[:session][:password])
-      log_in user
+      log_in user           # parenthesis not needed for method calls
+      remember user
       redirect_to user
     else
       flash.now[:danger] = "Invalid email/password combination"
