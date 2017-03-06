@@ -1,6 +1,11 @@
 # Ruby on Rails Tutorial sample application
 
-This is the sample application for
+The production version of this application is located at [here](nameless-stream-69628.herokuapp.com).
+ 
+Most of the code is the same as Michael Hartl's, but there some instances where I've gone ahead the tutorial and implemented a feature in advance. Also: more comments.
+
+
+Credit and source:
 [*Ruby on Rails Tutorial:
 Learn Web Development with Rails*](http://www.railstutorial.org/)
 by [Michael Hartl](http://www.michaelhartl.com/).
