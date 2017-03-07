@@ -23,10 +23,15 @@ class UsersController < ApplicationController
     # debugger
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  # private section: start
   private
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
-  # private section
+  # private section: end
 end
