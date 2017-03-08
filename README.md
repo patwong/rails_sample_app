@@ -1,6 +1,6 @@
 # Ruby on Rails Tutorial sample application
 
-The production version of this application is located at [here](nameless-stream-69628.herokuapp.com).
+The production version of this application is located at [here](https://rortutorialapp.herokuapp.com/).
  
 Most of the code is the same as Michael Hartl's, but there some instances where I've gone ahead the tutorial and implemented a feature in advance. Also: more comments.
 
