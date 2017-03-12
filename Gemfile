@@ -32,11 +32,15 @@ gem 'jbuilder', '~> 2.5'
 
 ### MY ADDITIONS
 # tutorial listing 5.5
-gem 'bootstrap-sass', '3.3.6'
+gem 'bootstrap-sass',             '3.3.6'
 
 # Use ActiveModel has_secure_password - *note: initially included but commented out - included for ch6
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt',                     '~> 3.1.7'
 
+# ch10
+gem 'faker'
+gem 'will_paginate',              '3.1.0'
+gem 'bootstrap-will_paginate',    '>=0.0.10'
 ### END
 
 # Use Capistrano for deployment

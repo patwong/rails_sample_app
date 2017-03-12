@@ -76,7 +76,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", users_path, count: 0
     log_in_as(@user)
     assert_redirected_to @user  # user_path(@user) # rails magic doesn't need user_path(@user)
-    follow_redirect!
+    follow_redirect!            # always need to include follow_redirect! when there's redirect
     assert_template 'users/show'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
