@@ -1,8 +1,8 @@
 # Ruby on Rails Tutorial sample application
 
-The production version of this application is located at [here](https://rortutorialapp.herokuapp.com/).
+The production version of this application is located [here](https://rortutorialapp.herokuapp.com/).
  
-Most of the code is the same as Michael Hartl's, but there some instances where I've gone ahead the tutorial and implemented a feature in advance. Also: more comments.
+Most of the code is the same as Michael Hartl's, but there are some instances where I've gone ahead of the tutorial and implemented a feature differently. Also: more comments.
 
 
 Credit and source:
