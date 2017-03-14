@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    # debugger
+    # exercise 10.2.3
+    # session[:forwarding_url] = ".../users/1/edit"
+    # request.get? = true
   end
 
   def create
@@ -13,7 +17,8 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       log_in @user           # parenthesis not needed for method calls
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to @user
+      # redirect_to @user
+      redirect_back_or @user
     else
       flash.now[:danger] = "Invalid email/password combination"
       render 'new'
