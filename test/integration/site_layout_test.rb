@@ -25,4 +25,24 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "title", full_title("Sign up")
     # end exercise
   end
+
+  # exercise 10.3.1.1
+  test "checking all links before and after login" do
+    get root_path
+    assert_select "a[href=?]", login_path
+    assert_select "a[href=?]", logout_path,      count: 0
+    assert_select "a[href=?]", user_path(@user), count: 0
+    assert_select "a[href=?]", edit_user_path(@user), count: 0
+    assert_select "a[href=?]", users_path, count: 0
+    log_in_as(@user)
+    assert_redirected_to @user  # user_path(@user) # rails magic doesn't need user_path(@user)
+    follow_redirect!            # always need to include follow_redirect! when there's redirect
+    assert_template 'users/show'
+    assert_select "a[href=?]", login_path, count: 0
+    assert_select "a[href=?]", logout_path
+    assert_select "a[href=?]", user_path(@user)
+    assert_select "a[href=?]", edit_user_path(@user)
+    assert_select "a[href=?]", users_path
+  end
+
 end

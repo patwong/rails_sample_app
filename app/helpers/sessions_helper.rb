@@ -20,6 +20,7 @@ module SessionsHelper
     end
   end
 
+  # returns true if the given user is the current user (ch10)
   def current_user?(user)
     user == current_user
   end
