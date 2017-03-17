@@ -1,11 +1,14 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
 
   # validates :name, presence: true, length: {maximum: 50}
   # validates :email, presence: true, length: {maximum: 255}
 
   # before_save {self.email = email.downcase }
-  before_save { email.downcase!}  # equivalent to the above commented statement
+  # before_save { email.downcase!}  # equivalent to the above commented statement
+  before_save :downcase_email       # method reference preferred over a passed block (ch11)
+
+  before_create :create_activation_digest
 
   validates(:name, {presence: true,
                      length: {maximum: 50}}
@@ -50,4 +53,19 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  # private section
+  private
+
+    # converts email to lowercase
+    def downcase_email
+      email.downcase!
+    end
+
+    # creates and assigns the activation token and digest
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(self.activation_token)
+    end
+  # end private
 end
