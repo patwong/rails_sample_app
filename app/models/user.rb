@@ -41,12 +41,19 @@ class User < ApplicationRecord
   end
 
   # returns true if the given token matches the digest
-  def authenticated?(remember_token)
-    if remember_digest  # only attempt to authenticate if a digest exists
-      BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+
+    if digest  # only attempt to authenticate if a digest exists
+      BCrypt::Password.new(digest).is_password?(token)
     else
       return false
     end
+
+    # original:
+    # authenticated?(remember_token)
+    # ...
+    # if remember_token BCrypt:... else return false
   end
 
   # forgets a user

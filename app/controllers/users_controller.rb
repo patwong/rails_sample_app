@@ -18,10 +18,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # handle a succesful save
-      log_in(@user)
-      flash[:success] = "Welcome to Sample App!"
-      redirect_to @user # also works: redirect_to user_url(@user); rails understands the former [magic]
+      # handle a successful save
+      # ch11
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+
+      # old code for when user gets immediate access to account w/o email
+      # log_in(@user)
+      # flash[:success] = "Welcome to Sample App!"
+      # redirect_to @user # also works: redirect_to user_url(@user); rails understands the former [magic]
     else
       render 'new'
     end
