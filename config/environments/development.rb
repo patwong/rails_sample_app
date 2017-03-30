@@ -31,7 +31,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true   # default: false
   config.action_mailer.delivery_method = :test
   host = 'localhost:3000'                             # tutorial guy uses his cloud IDE URL
-  config.action_mailer.default_url_options = { host: host, protocol: 'http'}
+  config.action_mailer.default_url_options = { host: host, protocol: 'http'}     #  'https' if production/cloud IDE
 
   # ch11 end
 
