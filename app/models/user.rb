@@ -61,6 +61,21 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  # activates an account
+  def activate
+    # redundant after ex 11.3.3.1
+    # update_attribute(:activated,  true)
+    # update_attribute(:activated_at, Time.zone.now)
+
+    # exercise 11.3.3.1
+    update_columns(activated: true, activated_at: Time.zone.now)
+  end
+
+  # sends activation account
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
   # private section
   private
 

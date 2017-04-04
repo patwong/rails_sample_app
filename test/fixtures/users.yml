@@ -44,3 +44,9 @@ user_<%= n %>:
   activated: true
   activated_at: <% Time.zone.now %>
 <% end %>
+
+mister_unactivated:
+  name: Mister Unactivated
+  email: mrunactivated@example.com
+  password_digest: <%= User.digest('password') %>
+  activated: false
