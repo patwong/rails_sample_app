@@ -1,0 +1,12 @@
+source: app/views/users/show.html.erb
+<%= @user.name %>,
+<%= @user.email %>,
+<%= @user.created_at %>,
+<%= @user.updated_at%>,
+<%= Time.now%>
+
+---------------------------------
+application.html.erb (Listing 7.31)
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
